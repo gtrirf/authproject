@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ object.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        h5 {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        a {
+            display: block;
+            text-align: center;
+            background-color: #ff5a5f;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        a:hover {
+            background-color: #ff3338;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ object.title }}</h1>
+        <img src="{{ object.image.url }}">
+        <h5>Description: {{ object.description }}</h5>
+        <h5>Price: {{ object.price }}</h5>
+        <h5>Pages: {{ object.page }}</h5>
+        <a href="{% url 'books:book_delete' object.pk %}">Delete book</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        button a {
+            color: #fff;
+            text-decoration: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Home Page</h1>
+        <button><a href="{% url 'books:book_list' %}">Books</a></button>
+        <button><a href="{% url 'users:register' %}">Register</a></button>
+        {% if request.user.is_authenticated %}
+            <button><a href="{% url 'users:logout' %}">Logout</a></button>
+        {% else  %}
+            <button><a href="{% url 'users:login' %}">Login</a></button>
+        {% endif %}
+    </div>
+</body>
+</html>
